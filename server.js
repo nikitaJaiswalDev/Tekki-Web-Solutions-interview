@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const authRoutes = require('./routes/auth.routes');
 const blogRoutes = require('./routes/blog.routes');
+const swaggerSetup = require('./swagger');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,6 +19,8 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB Connected'))
   .catch(err => console.error('MongoDB Connection Error:', err));
+
+swaggerSetup(app);
 
 // Routes
 app.use('/api/auth', authRoutes);
