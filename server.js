@@ -5,8 +5,10 @@ const morgan = require('morgan');
 const authRoutes = require('./routes/auth.routes');
 const blogRoutes = require('./routes/blog.routes');
 const swaggerSetup = require('./swagger');
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 // Middleware

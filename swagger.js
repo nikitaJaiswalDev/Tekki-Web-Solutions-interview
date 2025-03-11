@@ -9,7 +9,16 @@ const options = {
       version: '1.0.0',
       description: 'A simple Blog API with JWT authentication and CRUD operations',
     },
-    servers: [{ url: 'http://localhost:5005', description: 'Local server' }],
+    servers: [
+      {
+        url: "https://tekki-web-solutions-interview.onrender.com",
+        description: "Production Server",
+      },
+      {
+        url: "http://localhost:5005",
+        description: "Local Development Server",
+      },
+    ],
     components: {
       securitySchemes: {
         bearerAuth: {
